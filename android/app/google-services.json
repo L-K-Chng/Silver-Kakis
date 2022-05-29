@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "937081135014",
+    "project_id": "silver-kakis",
+    "storage_bucket": "silver-kakis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937081135014:android:09029bffcf4c58612bb967",
+        "android_client_info": {
+          "package_name": "com.example.silverkakis1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937081135014-dc4lauqaa2dk2qevu1f0meca9s22kjh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOkmuSOf3Ww_e5LLWHr5IhalgSG5hTv2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937081135014-dc4lauqaa2dk2qevu1f0meca9s22kjh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
