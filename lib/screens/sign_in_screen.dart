@@ -40,6 +40,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 )),
             child: SingleChildScrollView(
               child: Padding(
+                //padding: EdgeInsets.only(top: 100.0),
                 padding: EdgeInsets.fromLTRB(
                     20, MediaQuery
                     .of(context)
@@ -52,14 +53,20 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(
                     height: 0,
                   ),
-                  Text(
+                  Padding(padding: EdgeInsets.only(bottom:10.0),
+                  child: Text('Silver Kakis',
+                  style: TextStyle(fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  ),),),
+                  /*Text(
                     'Silver Kakis',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
-                  ),
+                  ),*/
                   const SizedBox(height: 10),
                   reusableTextField("Email Address", Icons.person_outline,
                       false, _emailTextController),
@@ -91,6 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 10,
                   ),
                   signUpOption(),
+                  //Nav(),
                 ]),
               ),
             )));
