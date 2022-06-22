@@ -108,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Don't have an account?",
+        const Text("Don't have an account yet?",
             style: TextStyle(color: Colors.black)),
         GestureDetector(
           onTap: () {

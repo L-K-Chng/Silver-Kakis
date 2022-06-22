@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:silverkakis1/reusable_widgets/reusable_widget.dart';
 import 'package:silverkakis1/screens/chat_page.dart';
 import 'package:silverkakis1/screens/interest_group_page.dart';
+import 'package:silverkakis1/screens/profile_page.dart';
 import 'package:silverkakis1/screens/sign_in_screen.dart';
 import 'package:silverkakis1/screens/social_media_page.dart';
 
@@ -19,36 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
   //insertion of bottom nav bar.
   //uncomment the bottom for the original code
   int _selectedIndex = 0;
-  /*static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-        'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-        'Index 2: School',
-      style: optionStyle,
-    ),
-  ];*/
-
   //linking to other pages
   final _pageOptions = [
     SocialMediaPage(),
     InterestGroupPage(),
-    ChatFunctionPage()
+    ChatFunctionPage(),
+    ProfilePage(),
   ];
-
-  //for now comment out
-  /*void _onItemTapped(int index){
-    setState((){
-      _selectedIndex = index;
-    });
-  }*/
   
   @override
   Widget build(BuildContext context) {
@@ -79,63 +57,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
         body: _pageOptions[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home, size: 30), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.groups, size: 30), label: 'Interest Groups'),
+            BottomNavigationBarItem(icon: Icon(Icons.groups, size: 30), label: 'Interest'),
             BottomNavigationBarItem(icon: Icon(Icons.sms_rounded, size: 30), label: 'Chat'),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded, size: 30), label: 'Profile'),
           ],
-          selectedItemColor: Colors.green,
+          selectedItemColor: Colors.blue,
           elevation: 5.0,
-          unselectedItemColor: Colors.green[900],
+          unselectedItemColor: Colors.black,
           currentIndex: _selectedIndex,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.white70,
           onTap: (index){
             setState(() {
               _selectedIndex = index;
             });
           },
         )
-
-
-        //original code below
-        //bottomNavigationBar: const CustomBottomNavigationBar()
-
-
-        /*BottomNavigationBar(
-          backgroundColor: Colors.lightBlueAccent,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.business),
-              label: 'Business',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-              label: 'School',
-            ),
-          ],
-
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.amber[800],
-          onTap: _onItemTapped,
-
-          //testing to make navbar linked to other screens
-
-          /*selectedItemColor: Colors.green,
-          elevation: 5.0,
-          unselectedItemColor: Colors.green[900],
-          currentIndex: selectedPage,
-          onTap: (index){
-            setState(() {
-              selectedPage = index;
-            });
-          },*/
-
-        ),*/
       );
-    //);
   }}
 

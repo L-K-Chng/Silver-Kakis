@@ -1,4 +1,3 @@
-//import 'dart:js';
 import 'package:flutter/material.dart';
 //import 'package:silverkakis1/screens/sign_up_screen.dart';
 
@@ -6,11 +5,8 @@ Image logoWidget(String imageName) {
   return Image.asset(
     imageName,
     fit: BoxFit.fitWidth,
-    //width: 200,
-    //height: 240,
     width: 240,
     height: 240,
-    //color: Colors.black,
   );
 }
 
@@ -159,5 +155,44 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     );
   }
 }*/
+
+
+
+/*class PlusButton extends StatefulWidget {
+
+  @override
+  State<PlusButton> createState() => _PlusButtonState();
+}
+
+  bool click = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Center(
+            child: ElevatedButton(
+              onPressed: (){
+                setState(()
+                {
+                  click = !click;
+                });
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Icon((click == false) ? Icons.check : Icons.add, size: 60,),
+              ),
+            ),
+          ),
+        )
+    );
+  }*/
+
+
+
+
+
+
 
 
