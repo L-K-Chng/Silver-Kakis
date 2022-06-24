@@ -34,10 +34,11 @@ class _HomeScreenState extends State<HomeScreen> {
       //child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
+          centerTitle: true,
           title: Text("Silver Kakis"),
-          backgroundColor: Colors.lightBlueAccent,
+          backgroundColor: Colors.purple,
           elevation: 0.0,
-          actions: <Widget>[
+          /*actions: <Widget>[
             ElevatedButton(child: Text("Log Out"),
               onPressed: () {
                 FirebaseAuth.instance.signOut().then((value) {
@@ -47,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
-          ],
+          ],*/
         ),
         //this is the entire code for bottom nav bar
         /*body: Center(

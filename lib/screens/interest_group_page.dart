@@ -87,125 +87,15 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
                       child: const PlusButton(),
                     )],
                 ),
-                //const SizedBox(height: 30,),
-                Divider(
-                  color: Colors.black,
-                  height: 30,
-                  thickness: 2,
-                ),
-                Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage("assets/images/cooking1.png"),
-                      backgroundColor: Colors.white70,
-                    ),
-                    const SizedBox(width: 10,),
-                    const Expanded(
-                        child: Text(
-                          "Cooking",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 30.0,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        )),
-                    const SizedBox(width: 60,),
-                    Expanded(
-                      child: const PlusButton(),
-                    )],
-                ),
-                //const SizedBox(height: 30,),
-                Divider(
-                  color: Colors.black,
-                  height: 30,
-                  thickness: 2,
-                ),
-                Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage("assets/images/plant.png"),
-                      backgroundColor: Colors.white,
-                    ),
-                    const SizedBox(width: 10,),
-                    const Expanded(
-                        child: Text(
-                          "Gardening",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 29.0,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        )),
-                    const SizedBox(width: 60,),
-                    Expanded(
-                      child: const PlusButton(),
-                    )],
-                ),
-                //const SizedBox(height: 30,),
-                Divider(
-                  color: Colors.black,
-                  height: 30,
-                  thickness: 2,
-                ),
-                Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage("assets/images/bird_watching.png"),
-                      backgroundColor: Colors.white70,
-                    ),
-                    const SizedBox(width: 10,),
-                    const Expanded(
-                        child: Text(
-                          "Bird Watching",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                              decoration: TextDecoration.none,
-                              fontSize: 30.0,
-                              fontFamily: 'Raleway',
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        )),
-                    const SizedBox(width: 60,),
-                    Expanded(
-                      child: const PlusButton(),
-                    ),
-                  ],
                 ),
               ],
             )));
   }
 }*/
 
+
+
 /*class InterestGroupPage extends StatefulWidget {
-  const InterestGroupPage({Key? key}) : super(key: key);
-
-  @override
-  State<InterestGroupPage> createState() => _InterestGroupPageState();
-}
-
-class _InterestGroupPageState extends State<InterestGroupPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Card(
-          child: TextField(
-            decoration: InputDecoration,
-          ),
-        ),
-      ),
-    );
-  }
-}*/
-
-class InterestGroupPage extends StatefulWidget {
   const InterestGroupPage({Key? key}) : super(key: key);
 
   @override
@@ -412,4 +302,81 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
           },
         )));
   }
+}*/
+
+class InterestGroupPage extends StatefulWidget {
+  const InterestGroupPage({Key? key}) : super(key: key);
+
+  @override
+  State<InterestGroupPage> createState() => _InterestGroupPageState();
 }
+
+class _InterestGroupPageState extends State<InterestGroupPage> {
+  String name = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: Card(
+          child: TextField(
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search), hintText: 'Search...'),
+            onChanged: (val) {
+              setState(() {
+                name = val;
+              });
+            },
+          ),
+        ),
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: (name != "" && name != null)
+            ? FirebaseFirestore.instance
+            .collection('interest groups')
+            .where("searchKeywords", arrayContains: name)
+            .snapshots()
+            : FirebaseFirestore.instance.collection("interest groups").snapshots(),
+        builder: (context, snapshot) {
+          return (snapshot.connectionState == ConnectionState.waiting)
+              ? Center(child: CircularProgressIndicator())
+              : ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) {
+              DocumentSnapshot data = snapshot.data!.docs[index];
+              return Container(
+                padding: EdgeInsets.only(top: 16),
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text(data['name'],
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
+                      leading: CircleAvatar(
+                        child: Image.network(
+                          data['image'],
+                          width: 100,
+                          height: 50,
+                          fit: BoxFit.contain,
+                        ),
+                        radius: 40,
+                        backgroundColor: Colors.white70,
+                      ),
+                      trailing: PlusButton(),
+                    ),
+                    Divider(
+                      thickness: 2,
+                    )
+                  ],
+                ),
+              );
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+

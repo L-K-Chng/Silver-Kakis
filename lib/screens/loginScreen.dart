@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 flex: 1,
               ),
               Image.asset(
-                  'assets/images/Silver_Kakis_Logo-removebg-preview.png',
+                  'assets/images/silverkakis.png',
                   scale: 1,
               ),
               const SizedBox(

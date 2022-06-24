@@ -19,6 +19,10 @@ class _PlusButtonState extends State<PlusButton> {
           click = !click;
         });
       },
+      style: TextButton.styleFrom(
+        primary: Colors.black,
+        backgroundColor: Colors.red,
+      ),
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Icon((click == false) ? Icons.check : Icons.add, size: 30,),
