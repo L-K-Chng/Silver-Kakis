@@ -3,7 +3,6 @@ import 'package:silverkakis1/reusable_widgets/plus_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-
 /*class InterestGroupPage extends StatefulWidget {
   const InterestGroupPage({Key? key}) : super(key: key);
 
@@ -184,7 +183,6 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
   }
 }*/
 
-
 /*class InterestGroupPage extends StatefulWidget {
   const InterestGroupPage({Key? key}) : super(key: key);
 
@@ -291,23 +289,28 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
     }*/
     {
       'name': 'Mahjong',
-      'image': 'https://png.pngtree.com/png-clipart/20190916/original/pngtree-cartoon-white-mahjong-illustration-png-image_4598550.jpg'
+      'image':
+          'https://png.pngtree.com/png-clipart/20190916/original/pngtree-cartoon-white-mahjong-illustration-png-image_4598550.jpg'
     },
     {
       'name': 'Cooking',
-      'image': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrTYzgxq7Mj3QvYcEjbYUt7Lp6gud2OuIreAa1Ak_KDlJrf111ZAChfntyWzumz2IbfTk&usqp=CAU'
+      'image':
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrTYzgxq7Mj3QvYcEjbYUt7Lp6gud2OuIreAa1Ak_KDlJrf111ZAChfntyWzumz2IbfTk&usqp=CAU'
     },
     {
       'name': 'Gardening',
-      'image': 'https://images-na.ssl-images-amazon.com/images/I/21fXGJqPsQL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg'
+      'image':
+          'https://images-na.ssl-images-amazon.com/images/I/21fXGJqPsQL._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg'
     },
     {
       'name': 'Taichi',
-      'image': 'https://mpng.subpng.com/20180608/ss/kisspng-tai-chi-silhouette-taiji-white-lily-5b1b4341313cf7.8405130415285133452017.jpg'
+      'image':
+          'https://mpng.subpng.com/20180608/ss/kisspng-tai-chi-silhouette-taiji-white-lily-5b1b4341313cf7.8405130415285133452017.jpg'
     },
     {
       'name': 'Bird Watching',
-      'image': 'https://www.clipartmax.com/png/small/309-3090278_bird-watching-royalty-free-vector-clip-art-illustration-bird-watching-cartoon-png.png'
+      'image':
+          'https://www.clipartmax.com/png/small/309-3090278_bird-watching-royalty-free-vector-clip-art-illustration-bird-watching-cartoon-png.png'
     }
   ];
 
@@ -328,89 +331,85 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.green,
         appBar: AppBar(
             title: Card(
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search), hintText: 'Search'),
-                onChanged: (val) {
-                  setState(() {
-                    name = val;
-                  });
-                },
-              ),
-            )),
-        body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('interest groups').snapshots(), //change back to users
+          child: TextField(
+            decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search), hintText: 'Search'),
+            onChanged: (val) {
+              setState(() {
+                name = val;
+              });
+            },
+          ),
+        )),
+        body: Center(
+            child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection('interest groups')
+              .snapshots(), //change back to users
           builder: (context, snapshots) {
             return (snapshots.connectionState == ConnectionState.waiting)
                 ? Center(
-              child: CircularProgressIndicator(),
-            )
-                : ListView.builder(
-                itemCount: snapshots.data!.docs.length,
-                itemBuilder: (context, index) {
-                  var data = snapshots.data!.docs[index].data()
-                  as Map<String, dynamic>;
+                    child: CircularProgressIndicator(),
+                  )
+                : ListView.separated(
+                    ///change ListView.builder to ListView.separated for the dividers.
+                    itemCount: snapshots.data!.docs.length,
+                    itemBuilder: (context, index) {
+                      var data = snapshots.data!.docs[index].data()
+                          as Map<String, dynamic>;
 
-                  if (name.isEmpty) {
-                    return ListTile(
-                      title: Text(
-                        data['name'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      /*subtitle: Text(
-                        data['email'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),*/
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(data['image']),
-                        radius: 30,
-                      ),
-                    );
-                  }
-                  if (data['name']
-                      .toString()
-                      .toLowerCase()
-                      .startsWith(name.toLowerCase())) {
-                    return ListTile(
-                      title: Text(
-                        data['name'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      /*subtitle: Text(
-                        data['email'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),*/
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(data['image']),
-                        radius: 30,
-                      ),
-                    );
-                  }
-                  return Container();
-                });
+                      if (name.isEmpty) {
+                        return ListTile(
+                          title: Text(
+                            data['name'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(data['image']),
+                            radius: 30,
+                          ),
+                          trailing: const PlusButton(),
+                        );
+                      }
+                      if (data['name']
+                          .toString()
+                          .toLowerCase()
+                          .startsWith(name.toLowerCase())) {
+                        return ListTile(
+                          title: Text(
+                            data['name'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          leading: CircleAvatar(
+                            backgroundImage: NetworkImage(data['image']),
+                            radius: 30,
+                          ),
+                        );
+                      }
+                      return Container();
+                    },
+                    //use separatorBuilder to get a divider between the items.
+                    separatorBuilder: (BuildContext context, int index) =>
+                        const Divider(
+                      color: Colors.black,
+                      thickness: 2,
+                      height: 10,
+                    ),
+                  );
           },
-        ));
+        )));
   }
 }
