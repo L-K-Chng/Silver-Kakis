@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:silverkakis1/reusable_widgets/reusable_widget.dart';
 import 'package:silverkakis1/screens/chat_page.dart';
 import 'package:silverkakis1/screens/interest_group_page.dart';
+import 'package:silverkakis1/screens/loginScreen.dart';
 import 'package:silverkakis1/screens/profile_page.dart';
-import 'package:silverkakis1/screens/sign_in_screen.dart';
 import 'package:silverkakis1/screens/social_media_page.dart';
 
 
@@ -44,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 FirebaseAuth.instance.signOut().then((value) {
                   print("Signed Out");
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignInScreen()));
+                      MaterialPageRoute(builder: (context) => LoginScreen()));
                 });
               },
             ),
