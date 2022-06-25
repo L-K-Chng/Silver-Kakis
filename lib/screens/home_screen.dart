@@ -1,80 +1,114 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:silverkakis1/screens/chat_page.dart';
-import 'package:silverkakis1/screens/interest_group_page.dart';
-import 'package:silverkakis1/screens/loginScreen.dart';
-import 'package:silverkakis1/screens/profile_page.dart';
-import 'package:silverkakis1/screens/social_media_page.dart';
-
+import 'package:provider/provider.dart';
+import '../providers/user_provider.dart';
+import '../utils/colours.dart';
+import '../utils/global_variable.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-  //static const  String _title = 'Flutter Code Sample';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  //insertion of bottom nav bar.
-  //uncomment the bottom for the original code
-  int _selectedIndex = 0;
-  //linking to other pages
-  final _pageOptions = [
-    SocialMediaPage(),
-    InterestGroupPage(),
-    ChatFunctionPage(),
-    ProfilePage(),
-  ];
-  
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
+  /// Indicates the current page.
+  int _page = 0;
+  late PageController pageController;
+
+  /// Sets initial state.
+  @override
+  void initState() {
+    super.initState();
+    addData();
+    pageController = PageController();
+  }
+
+  /// Used to retrieve User data when the user logs in.
+  addData() async {
+    UserProvider _userProvider = Provider.of(context, listen: false);
+
+    /// calling refreshUser() here will store the user information in the UserProvider class
+    await _userProvider.refreshUser();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+  }
+
+  void onPageChanged(int page) {
+    setState(() {
+      _page = page;
+    });
+  }
+
+  void navigationTapped(int page) {
+    //Animating Page
+    pageController.jumpToPage(page);
+  }
+
   @override
   Widget build(BuildContext context) {
-    //return Container(
     return Scaffold(
-      //child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text("Silver Kakis"),
-          backgroundColor: Colors.purple,
-          elevation: 0.0,
-          /*actions: <Widget>[
-            ElevatedButton(child: Text("Log Out"),
-              onPressed: () {
-                FirebaseAuth.instance.signOut().then((value) {
-                  print("Signed Out");
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                });
-              },
+      backgroundColor: Colors.white,
+
+      /// Body
+      /// The other screens returned should be the body only.
+      body: PageView(
+        controller: pageController,
+        onPageChanged: onPageChanged,
+        children: homeScreenItems,
+      ),
+
+      /// BottomNavBar.
+      bottomNavigationBar: CupertinoTabBar(
+        backgroundColor: mobileBackgroundColor,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: (_page == 0) ? primaryColor : secondaryColor,
             ),
-          ],*/
-        ),
-        //this is the entire code for bottom nav bar
-        /*body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),*/
-
-        body: _pageOptions[_selectedIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home, size: 30), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.groups, size: 30), label: 'Interest'),
-            BottomNavigationBarItem(icon: Icon(Icons.sms_rounded, size: 30), label: 'Chat'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle_rounded, size: 30), label: 'Profile'),
-          ],
-          selectedItemColor: Colors.blue,
-          elevation: 5.0,
-          unselectedItemColor: Colors.black,
-          currentIndex: _selectedIndex,
-          backgroundColor: Colors.white70,
-          onTap: (index){
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-        )
-      );
-  }}
-
+            label: '',
+            backgroundColor: primaryColor,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.group,
+                color: (_page == 1) ? primaryColor : secondaryColor,
+              ),
+              label: '',
+              backgroundColor: primaryColor),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_circle,
+                color: (_page == 2) ? primaryColor : secondaryColor,
+              ),
+              label: '',
+              backgroundColor: primaryColor),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.chat,
+              color: (_page == 3) ? primaryColor : secondaryColor,
+            ),
+            label: '',
+            backgroundColor: primaryColor,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: (_page == 4) ? primaryColor : secondaryColor,
+            ),
+            label: '',
+            backgroundColor: primaryColor,
+          ),
+        ],
+        onTap: navigationTapped,
+        currentIndex: _page,
+      ),
+    );
+  }
+}

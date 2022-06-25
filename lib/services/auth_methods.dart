@@ -13,20 +13,19 @@ class AuthMethods {
     User currentUser = _auth.currentUser!;
 
     DocumentSnapshot documentSnapshot =
-    await _firestore.collection('users').doc(currentUser.uid).get();
+        await _firestore.collection('users').doc(currentUser.uid).get();
 
     return model.User.fromSnap(documentSnapshot);
   }
 
   /// Add an user to the firebase authentication and uploads their credentials
   /// onto firestore.
-  Future<String> signUpUser ({
-    required String email,
-    required String password,
-    required String username,
-    required String bio,
-    required Uint8List file
-  }) async {
+  Future<String> signUpUser(
+      {required String email,
+      required String password,
+      required String username,
+      required String bio,
+      required Uint8List file}) async {
     String res = "Some error Occurred";
 
     try {
@@ -42,7 +41,8 @@ class AuthMethods {
 
         /// Uploads the profile picture to firebase storage and add a link
         /// to it in the user cred document within firestore.
-        String photoUrl = await StorageMethods().uploadImageToStorage('profilePics', file, false);
+        String photoUrl = await StorageMethods()
+            .uploadImageToStorage('profilePics', file, false);
 
         model.User _user = model.User(
           username: username,
@@ -50,17 +50,15 @@ class AuthMethods {
           photoUrl: photoUrl,
           email: email,
           bio: bio,
-          followers: [],
-          following: [],
+          interestGroups: [],
         );
 
         /// Adds user credentials to firestore.
         await _firestore
-            .collection("users1")
+            .collection("users")
             .doc(cred.user!.uid)
             .set(_user.toJson());
         res = "success";
-
       } else {
         res = "Please enter all the fields";
       }
@@ -75,7 +73,6 @@ class AuthMethods {
     required String email,
     required String password,
   }) async {
-
     String res = "Some error Occurred";
     try {
       if (email.isNotEmpty || password.isNotEmpty) {
