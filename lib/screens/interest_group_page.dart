@@ -243,6 +243,7 @@ class _InterestGroupPageState extends State<InterestGroupPage> {
         stream: (name != "" && name != null)
             ? FirebaseFirestore.instance
             .collection('interest groups')
+        ///With each letter entered, search and filters
             .where("searchKeywords", arrayContains: name)
             .snapshots()
             : FirebaseFirestore.instance.collection("interest groups").snapshots(),

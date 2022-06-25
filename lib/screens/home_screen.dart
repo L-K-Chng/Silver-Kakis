@@ -66,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       /// BottomNavBar.
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: mobileBackgroundColor,
+        //backgroundColor: Colors.grey,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
