@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rotated_corner_decoration/rotated_corner_decoration.dart';
 import './home_screen.dart';
 import '../services/auth_methods.dart';
-import './signupScreen.dart';
+import './sign_up_screen.dart';
 import '../utils/colours.dart';
 import '../utils/utils.dart';
 import '../reusable_widgets/text_field_input.dart';
@@ -83,16 +83,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Flexible(
-                      flex: 1,
-                      child: Container(),
+                    Image.asset(
+                      'assets/images/silverkakis.png',
+                      scale: 2,
                     ),
                     Image.asset(
-                      'assets/images/Silver_Kakis_Logo-removebg-preview.png',
-                      scale: 1,
+                      'assets/images/Silver_Kakis_word-preview.png',
+                      scale: 1.5,
                     ),
                     const SizedBox(
-                      height: 64,
+                      height: 32,
                     ),
                     TextFieldInput(
                       hintText: 'Enter your email',
