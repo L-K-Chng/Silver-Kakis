@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import '../Screens/chat_page.dart';
+import 'package:silverkakis1/screens/chat_page.dart';
 import '../screens/add_post_screen.dart';
 import '../screens/social_feed_screen.dart';
 import '../screens/profile_page.dart';
 import '../screens/interest_group_page.dart';
+
+const webScreenSize = 600;
 
 List<Widget> homeScreenItems = [
   const FeedScreen(),

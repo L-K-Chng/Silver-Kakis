@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/user_provider.dart';
 import '../utils/colours.dart';
-import '../utils/global_variable.dart';
+import '../utils/global_variables.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,16 +20,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    addData();
     pageController = PageController();
-  }
-
-  /// Used to retrieve User data when the user logs in.
-  addData() async {
-    UserProvider _userProvider = Provider.of(context, listen: false);
-
-    /// calling refreshUser() here will store the user information in the UserProvider class
-    await _userProvider.refreshUser();
   }
 
   @override
@@ -60,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: PageView(
         controller: pageController,
         onPageChanged: onPageChanged,
-        children: homeScreenItems,
+        children: homeScreenItems
       ),
 
       /// BottomNavBar.
