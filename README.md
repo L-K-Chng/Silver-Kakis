@@ -354,3 +354,238 @@ We also developed a simple profile page (Fig 16) for the user. This page feature
 </tbody>
 </table>
 </d1>
+<p align="center"><b>Milestone 2 (31 May - 27 June)</b></p>
+<table>
+<tbody>
+  <tr>
+    <td>S/N</td>
+    <td>Task</td>
+    <td>Date</td>
+    <td>Lip Kuang (hours)</td>
+    <td>Cheng Jun (hours)</td>
+    <td>Remarks</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Milestone 2 Prep Day 1</td>
+    <td>31-May-22</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Self-Study on Flutter and Firebase</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Milestone 2 Prep Day 2</td>
+    <td>1-Jun-22</td>
+    <td>3</td>
+    <td>3</td>
+    <td>Self-Study on Flutter and Firebase</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Milestone 2 Prep Day 3</td>
+    <td>2-Jun-22</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Self-Study on Flutter and Firebase</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Milestone 2 Prep Day 4</td>
+    <td>3-Jun-22</td>
+    <td>2</td>
+    <td>2</td>
+    <td>Self-Study on Flutter and Firebase</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Milestone 2 Prep Day 5</td>
+    <td>4-Jun-22</td>
+    <td>6 </td>
+    <td>6 </td>
+    <td>Met up to discuss and work on project’s various screens</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Milestone 2 Prep Day 6</td>
+    <td>5-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+    <td>Self-study on Flutter and Firebase </td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Milestone 2 Prep Day 7</td>
+    <td>6-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+    <td>Polished up App UI </td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Milestone 2 Prep Day 8</td>
+    <td>7-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+    <td>Self-study on linking Flutter to Cloud Firestore</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Milestone 2 Prep Day 9</td>
+    <td>8-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+    <td>Worked on improving Sign in/Sign up pages </td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Milestone 2 Prep Day 10</td>
+    <td>9-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+    <td rowspan="2">Worked on Interest Group Page<br> </td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>Milestone 2 Prep Day 11</td>
+    <td>10-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Milestone 2 Prep Day 12</td>
+    <td>11-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+    <td rowspan="4">Watched videos on how to implement Social Media feed with Flutter and Cloud Firestore</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Milestone 2 Prep Day 13</td>
+    <td>12-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>Milestone 2 Prep Day 14</td>
+    <td>13-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>Milestone 2 Prep Day 15</td>
+    <td>14-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>Milestone 2 Prep Day 16</td>
+    <td>15-Jun-22</td>
+    <td>1 </td>
+    <td>1 </td>
+    <td rowspan="2">Self-Study, watching of online Videos<br>related to Flutter widgets<br> </td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>Milestone 2 Prep Day 17</td>
+    <td>16-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td>Milestone 2 Prep Day 18</td>
+    <td>17-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+    <td rowspan="4">Worked on creating Social Feed and feature to upload new posts <br> <br> </td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>Milestone 2 Prep Day 19</td>
+    <td>18-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>Milestone 2 Prep Day 20</td>
+    <td>19-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>Milestone 2 Prep Day 21</td>
+    <td>20-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>Milestone 2 Prep Day 22</td>
+    <td>21-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+    <td rowspan="2">Worked on User Profile Page <br> <br> </td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>Milestone 2 Prep Day 23</td>
+    <td>22-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>Milestone 2 Prep Day 24</td>
+    <td>23-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+    <td>Polished up UI for Social Feed, Interest Group Page and User Profile Page </td>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>Milestone 2 Prep Day 25</td>
+    <td>24-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+    <td rowspan="2">Tackling Milestone 2 Objectives</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>Milestone 2 Prep Day 26</td>
+    <td>25-Jun-22</td>
+    <td>4 </td>
+    <td>4 </td>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>Milestone 2 Prep Day 27</td>
+    <td>26-Jun-22</td>
+    <td>2 </td>
+    <td>2 </td>
+    <td>Touchup on certain features of the app </td>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>Milestone 2 Prep Day 28</td>
+    <td>27-Jun-22</td>
+    <td>3 </td>
+    <td>3 </td>
+    <td>Final touch-ups and submission of<br>Milestone 2<br> </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Total Hours:</td>
+    <td>81</td>
+    <td>81</td>
+    <td></td>
+  </tr>
+</tbody>
+</table>
