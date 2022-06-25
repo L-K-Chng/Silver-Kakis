@@ -4,9 +4,9 @@ import '../utils/utils.dart';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import './login_screen.dart';
 import '../utils/colours.dart';
 import '../reusable_widgets/text_field_input.dart';
+import 'add_data_screen.dart';
 
 
 class SignupScreen extends StatefulWidget {
@@ -192,7 +192,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                        builder: (context) => const AddData(homeScreen: HomeScreen(),),
                       ),
                     ),
                     child: Container(

@@ -6,6 +6,7 @@ import './sign_up_screen.dart';
 import '../utils/colours.dart';
 import '../utils/utils.dart';
 import '../reusable_widgets/text_field_input.dart';
+import 'add_data_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => HomeScreen()));
+          MaterialPageRoute(builder: (context) => AddData(homeScreen: HomeScreen(),)));
       setState(() {
         _isLoading = false;
       });
