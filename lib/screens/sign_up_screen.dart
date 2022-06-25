@@ -4,11 +4,9 @@ import '../utils/utils.dart';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import './loginScreen.dart';
+import './login_screen.dart';
 import '../utils/colours.dart';
 import '../reusable_widgets/text_field_input.dart';
-import '../utils/global_variable.dart';
-
 
 
 class SignupScreen extends StatefulWidget {
