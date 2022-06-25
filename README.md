@@ -117,17 +117,6 @@ We also developed a simple profile page (Fig 16) for the user. This page feature
 
 ### Future Plans
 <d1>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-u4an{color:#2D2D2D;text-align:center;vertical-align:top}
-.tg .tg-5pvu{border-color:inherit;color:#2D2D2D;text-align:center;vertical-align:top}
-.tg .tg-a3b2{color:#2D2D2D;font-weight:bold;text-align:left;vertical-align:top}
-.tg .tg-gzpp{color:#2D2D2D;text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <tbody>
   <tr>
@@ -172,15 +161,6 @@ We also developed a simple profile page (Fig 16) for the user. This page feature
 # Project Log
 ### Lift-off + Milestone 1 (9 May - 30 May)
 <d1>
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-lqy6{text-align:right;vertical-align:top}
-.tg .tg-0lax{text-align:left;vertical-align:top}
-</style>
 <table class="tg">
 <tbody>
   <tr>
