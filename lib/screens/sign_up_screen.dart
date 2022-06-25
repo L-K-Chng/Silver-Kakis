@@ -1,3 +1,5 @@
+import 'package:silverkakis1/screens/login_screen.dart';
+
 import './home_screen.dart';
 import '../services/auth_methods.dart';
 import '../utils/utils.dart';
@@ -53,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
       /// Navigates to the homeScreen
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => HomeScreen(),
+          builder: (context) => const AddData(homeScreen: HomeScreen()),
         ),
       );
     } else {
@@ -192,7 +194,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   GestureDetector(
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const AddData(homeScreen: HomeScreen(),),
+                        builder: (context) => LoginScreen()
                       ),
                     ),
                     child: Container(
