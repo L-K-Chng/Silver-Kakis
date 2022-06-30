@@ -115,6 +115,45 @@ The Interest Group Page (Fig 14) was developed along with a Search function (Fig
 <p align="center"><b>Fig. 16: User Profile Page</b></p>
 We also developed a simple profile page (Fig 16) for the user. This page features the user’s email, username, bio and profile picture as indicated by the user when they sign up (Fig 10).
 
+# User Testing
+<table>
+<thead>
+  <tr>
+    <th colspan="2">Manual UI Testing<br><br>App demo: <a href="https://drive.google.com/file/d/1DXxZyHK74tR8egVOUd7hIm8OjyInp52S/view?usp=sharing" target="_blank" rel="noopener noreferrer">https://drive.google.com/file/d/1DXxZyHK74tR8egVOUd7hIm8OjyInp52S/view?usp=sharing</a> </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Features</td>
+    <td>Tests</td>
+  </tr>
+  <tr>
+    <td>Login Page</td>
+    <td>Logged in using an account registered on firebase authentication.<br>Firebase_auth prints that the user is logged in.<br>Tried logging in using the same account but the wrong password.<br>Users could not be logged in.<br>Found that there was no maximum failed attempt.</td>
+  </tr>
+  <tr>
+    <td>Sign Up Page</td>
+    <td>The “Sign Up” button did not work if not all the fields are filled in.<br>App did not allow a sign up if the email was already used.<br>App requires a password to be more than 8 characters long.<br>The add profile image button correctly works and uploads the images to firebase storage.</td>
+  </tr>
+  <tr>
+    <td>Add Post Page</td>
+    <td>Posts correctly uploaded onto “posts” collection on firestore, with the image uploaded to firebase storage.<br>The correct user is tagged to each post.</td>
+  </tr>
+  <tr>
+    <td>Social Feed</td>
+    <td>Displays a scrolling feed of posts stored in the collection on firebase cloud firestore as “posts”.<br>Posts displayed on the app immediately after posting.<br>Like buttons and comment buttons work.</td>
+  </tr>
+  <tr>
+    <td>Interest Group</td>
+    <td>Displays entire list of interest groups in our interest group data collection<br>Search filter works correctly.<br>Follow interest group button works as well.</td>
+  </tr>
+  <tr>
+    <td>Profile Page</td>
+    <td>Profile page correctly displays the information for the logged in user.<br>Sign out button works.</td>
+  </tr>
+</tbody>
+</table>
+
 ### Future Plans
 <d1>
 <table class="tg">
