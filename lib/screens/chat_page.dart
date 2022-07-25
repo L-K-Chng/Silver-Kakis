@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatFunctionPage extends StatefulWidget {
@@ -10,8 +11,14 @@ class ChatFunctionPage extends StatefulWidget {
 class _ChatFunctionPageState extends State<ChatFunctionPage> {
   @override
   Widget build(BuildContext context) {
-    return Text('Chat Page!',
-    style: TextStyle(fontSize: 50),
-    );
+    return Text('Chat Page.');
+    /*Scaffold(
+      body: FutureBuilder(future: FirebaseFirestore.instance.collection('posts').get(),
+        builder: (context,snapshot){
+
+        },
+      ),
+    )*/
   }
 }
+

@@ -24,6 +24,8 @@ class _FeedScreenState extends State<FeedScreen> {
         title: Image.asset('assets/images/Silver_Kakis_word-preview.png', scale: 1.5,),
         actions: <Widget>[
           IconButton(
+            //changed portion
+            key: Key('Sign Out Button'),
             onPressed: () async {
               await AuthMethods().signOut();
               Navigator.of(context).pushReplacement(

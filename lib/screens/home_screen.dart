@@ -50,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       body: PageView(
         controller: pageController,
         onPageChanged: onPageChanged,
-        children: homeScreenItems
+        children: homeScreenItems,
+        physics: const NeverScrollableScrollPhysics(),
       ),
 
       /// BottomNavBar.

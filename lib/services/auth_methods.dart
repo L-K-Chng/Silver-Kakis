@@ -10,6 +10,7 @@ class AuthMethods {
 
   /// Retrieves the user credentials.
   Future<model.User> getUserDetails() async {
+    //await Firebase.initializeApp();
     User currentUser = _auth.currentUser!;
 
     DocumentSnapshot documentSnapshot =
