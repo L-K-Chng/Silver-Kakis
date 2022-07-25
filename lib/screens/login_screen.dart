@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotated_corner_decoration/rotated_corner_decoration.dart';
-import './home_screen.dart';
+import 'package:silverkakis1/reusable_widgets/attendance_card.dart';
 import '../services/auth_methods.dart';
 import './sign_up_screen.dart';
 import '../utils/colours.dart';
@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: _emailController.text, password: _passwordController.text);
     if (res == 'success') {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => AddData(homeScreen: HomeScreen(),)));
+          MaterialPageRoute(builder: (context) => AddData(homeScreen: AttendanceCard(),)));
       setState(() {
         _isLoading = false;
       });
