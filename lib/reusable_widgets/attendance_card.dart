@@ -5,6 +5,7 @@ import '../providers/user_provider.dart';
 import '../services/firestore_methods.dart';
 import '../utils/utils.dart';
 
+
 class AttendanceCard extends StatefulWidget {
   const AttendanceCard({Key? key}) : super(key: key);
 
