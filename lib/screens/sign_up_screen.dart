@@ -1,6 +1,6 @@
+import 'package:silverkakis1/reusable_widgets/attendance_card.dart';
 import 'package:silverkakis1/screens/login_screen.dart';
 
-import './home_screen.dart';
 import '../services/auth_methods.dart';
 import '../utils/utils.dart';
 import 'dart:typed_data';
@@ -55,7 +55,7 @@ class _SignupScreenState extends State<SignupScreen> {
       /// Navigates to the homeScreen
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const AddData(homeScreen: HomeScreen()),
+          builder: (context) => const AddData(homeScreen: AttendanceCard()),
         ),
       );
     } else {

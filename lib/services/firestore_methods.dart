@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-
+import '../models/attendance.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/post.dart';
 import '../services/storage_methods.dart';
@@ -7,6 +7,25 @@ import 'package:uuid/uuid.dart';
 
 class FireStoreMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<String> uploadAttendance(String uid,
+      String username, String profImage, String mood) async {
+    String res = "Some error occurred";
+    try {
+      Attendance attendance = Attendance(
+        uid: uid,
+        username: username,
+        dateTime: DateTime.now(),
+        profImage: profImage,
+        mood: mood,
+      );
+      _firestore.collection('Attendance').doc(uid).set(attendance.toJson());
+      res = "success";
+    } catch (err) {
+      res = err.toString();
+    }
+    return res;
+  }
 
   /// Upload a new post.
   /// Requires String UID from our first call to firestore_auth which is
