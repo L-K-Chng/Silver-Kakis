@@ -5,8 +5,20 @@ import '../services/auth_methods.dart';
 import './sign_up_screen.dart';
 import '../utils/colours.dart';
 import '../utils/utils.dart';
-import '../reusable_widgets/text_field_input.dart';
 import 'add_data_screen.dart';
+
+//new stuff
+class EmailFieldValidator {
+  static String? validate(String value){
+    return value.isEmpty ? 'Email can\'t be empty' : null;
+  }
+}
+
+class PasswordFieldValidator {
+  static String? validate(String value){
+    return value.isEmpty ? 'Password can\'t be empty' : null;
+  }
+}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,6 +31,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
+  // to hide password
+  bool _isObscure = true;
 
   @override
   void dispose() {
@@ -49,6 +63,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final inputBorder = OutlineInputBorder(
+      borderSide: Divider.createBorderSide(context),
+    );
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -95,23 +113,56 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 32,
                     ),
-                    TextFieldInput(
+                    /*TextFieldInput(
                       //changed portion
                       key: Key('Email Field'),
                       hintText: 'Enter your email',
                       textInputType: TextInputType.emailAddress,
                       textEditingController: _emailController,
+                    ),*/
+                    //testing first
+                    TextFormField(
+                      key: Key('Email Field'),
+                      decoration: InputDecoration(
+                        labelText: 'Enter your email',
+                        border: inputBorder,
+                      focusedBorder: inputBorder,
+                      enabledBorder: inputBorder,
+                      filled: true,
+                      contentPadding: const EdgeInsets.all(8),
+                      ),
+                      validator: (value) => EmailFieldValidator.validate(value!),
+                      //onSaved: (value) => _emailController = value as TextEditingController,
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
                     ),
                     const SizedBox(
                       height: 24,
                     ),
-                    TextFieldInput(
+
+                    /*TextFieldInput(
                       //changed portion
                       key: Key('Password Field'),
                       hintText: 'Enter your password',
                       textInputType: TextInputType.text,
                       textEditingController: _passwordController,
                       isPass: true,
+                    ),*/
+                    //testing this out first
+                    TextFormField(
+                      key: Key('Password Field'),
+                      decoration: InputDecoration(labelText: 'Enter your password',
+                        border: inputBorder,
+                        focusedBorder: inputBorder,
+                        enabledBorder: inputBorder,
+                        filled: true,
+                        contentPadding: const EdgeInsets.all(8),
+                      ),
+                      //added null check
+                      validator: (value) => PasswordFieldValidator.validate(value!),
+                      controller: _passwordController,
+                      keyboardType: TextInputType.text,
+                      obscureText: _isObscure,
                     ),
                     const SizedBox(
                       height: 24,

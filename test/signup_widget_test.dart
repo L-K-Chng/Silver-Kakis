@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:silverkakis1/screens/sign_up_screen.dart';
 
-//String email = 'test123@gmail.com', password = 'test123', username = 'test123', bio = 'bio',
-    //file = 'https://i.stack.imgur.com/l60Hf.png';
+String email = 'test123@gmail.com', password = 'test123', username = 'test123', bio = 'bio',
+    file = 'https://i.stack.imgur.com/l60Hf.png';
 
 Widget makeTestableWidget() => new MediaQuery(
     data: new MediaQueryData(),

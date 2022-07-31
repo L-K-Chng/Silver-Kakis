@@ -19,18 +19,3 @@ void main() async{
   });
 }
 
-/*void main(){
-  testWidgets("Sign Out Test", (WidgetTester tester) async {
-    //find all widgets needed
-    final signOutButton = find.byKey(ValueKey("Sign Out Button"));
-
-    //execute the actual test
-    await tester.pumpWidget(MaterialApp(home: FeedScreen()));
-    await tester.tap(signOutButton);
-    await tester.pump();
-
-    //check outputs
-    expect(signOutButton, findsOneWidget);
-
-  });
-}*/
